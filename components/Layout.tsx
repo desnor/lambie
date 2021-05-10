@@ -1,16 +1,16 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React, { ReactNode } from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = '' }: Props) => (
   <div>
     <Head>
-      <title>{title}</title>
+      <title>{`${title} | Bail Out!`}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
@@ -20,22 +20,22 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>Home</a>
         </Link>{' '}
         |{' '}
-        <Link href="/about">
-          <a>About</a>
+        <Link href="/profile">
+          <a>Profile</a>
         </Link>{' '}
         |{' '}
-        <Link href="/users">
-          <a>Users List</a>
+        <Link href="/people">
+          <a>List of People</a>
         </Link>{' '}
-        | <a href="/api/users">Users API</a>
+        | <a href="/api/people">People API</a>
       </nav>
     </header>
     {children}
-    <footer>
+    <footer style={{ position: 'fixed', bottom: 0 }}>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <span>Footer Content</span>
     </footer>
   </div>
-)
+);
 
-export default Layout
+export default Layout;
