@@ -1,6 +1,9 @@
-import { withSSRContext } from 'aws-amplify';
+import { Amplify, withSSRContext } from 'aws-amplify';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { listPersons } from '../../src/graphql/queries';
+import awsExports from '../../src/aws-exports';
+
+Amplify.configure({ ...awsExports, ssr: true });
 
 export default async function handler(
   req: NextApiRequest,
